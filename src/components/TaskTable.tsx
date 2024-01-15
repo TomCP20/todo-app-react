@@ -16,7 +16,7 @@ export function TaskTable({ items, setItems }: Readonly<{ items: ListItem[]; set
       </tr>
     </thead>
     <tbody>
-      {items.map(item => <TableRow item={item} handleRemove={handleRemove} key={item.id} />)}
+      {items.map(item => <TableRow item={item} onRemove={handleRemove} key={item.id} />)}
     </tbody>
   </table>;
 }
