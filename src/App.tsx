@@ -1,13 +1,8 @@
 import { useState } from "react";
-import { TaskTable } from "./components/TaskTable";
-import { TaskForm } from "./components/TaskForm";
-
-export type ListItem = {
-  task: string,
-  date: string,
-  id: string
-}
-
+import TaskTable from "./components/TaskTable";
+import TaskForm from "./components/TaskForm";
+import "./App.css"
+import { ListItem } from "./ListItem";
 
 export default function App() {
 

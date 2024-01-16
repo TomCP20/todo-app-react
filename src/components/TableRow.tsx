@@ -1,7 +1,7 @@
-import { ListItem } from "../App";
+import { ListItem } from "../ListItem";
 
 
-export function TableRow({item, onRemove}: Readonly<{ item: ListItem; onRemove: (id: string) => void; }>) {
+export default function TableRow({item, onRemove}: Readonly<{ item: ListItem; onRemove: (id: string) => void; }>) {
   return <tr>
     <th><input type="checkbox" /></th>
     <th>{item.task}</th>

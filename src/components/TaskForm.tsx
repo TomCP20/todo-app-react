@@ -1,6 +1,6 @@
-import { ListItem } from "../App";
+import { ListItem } from "../ListItem";
 
-export function TaskForm({ items, setItems }: Readonly<{ items: ListItem[]; setItems: React.Dispatch<React.SetStateAction<ListItem[]>>; }>) {
+export default function TaskForm({ items, setItems }: Readonly<{ items: ListItem[]; setItems: React.Dispatch<React.SetStateAction<ListItem[]>>; }>) {
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
