@@ -1,7 +1,12 @@
-import { ListItem } from "../ListItem";
+import ListItem from "../ListItem";
 
 
-export default function TableRow({item, onRemove}: Readonly<{ item: ListItem; onRemove: (id: string) => void; }>) {
+interface TableRowProps {
+  item: ListItem;
+  onRemove: (id: string) => void;
+}
+
+export default function TableRow({item, onRemove}: Readonly<TableRowProps>) {
   return <tr>
     <th><input type="checkbox" /></th>
     <th>{item.task}</th>

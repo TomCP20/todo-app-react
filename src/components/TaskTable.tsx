@@ -1,7 +1,12 @@
-import { ListItem } from "../ListItem";
+import ListItem from "../ListItem";
 import TableRow from "./TableRow";
 
-export default function TaskTable({ items, setItems }: Readonly<{ items: ListItem[]; setItems: React.Dispatch<React.SetStateAction<ListItem[]>>; }>) {
+interface TaskTableProps {
+  items: ListItem[];
+  setItems: React.Dispatch<React.SetStateAction<ListItem[]>>;
+}
+
+export default function TaskTable({ items, setItems }: Readonly<TaskTableProps>) {
   function handleRemove(id: string) {
     setItems(items.filter((item) => item.id !== id));
   }
