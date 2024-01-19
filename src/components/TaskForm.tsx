@@ -26,8 +26,10 @@ export default function TaskForm({ items, setItems }: Readonly<TaskFormProps>) {
   }
   return (
     <form className="form" onSubmit={handleSubmit}>
-      Task:<input type="text" id="task" required />
-      Due Date:<input type="date" id="date" />
+      <label htmlFor="task">Task:</label>
+      <input type="text" id="task" required />
+      <label htmlFor="date">Due Date:</label>
+      <input type="date" id="date" />
       <button className="add_task">Add Task</button>
     </form>
   );
