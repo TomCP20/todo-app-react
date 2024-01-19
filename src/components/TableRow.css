@@ -1,0 +1,7 @@
+.delete {
+    border: none;
+}
+
+.delete:hover {
+    background-color: red;
+}

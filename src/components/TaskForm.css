@@ -1,0 +1,32 @@
+form {
+  margin: auto;
+  position: relative;
+  width: 50%;
+  height: 100px;
+  background-color: gray;
+  display: grid;
+  grid-template-columns: 24% 74%;
+  column-gap: 5px;
+  row-gap: 5px;
+  justify-content: center;
+  align-content: center;
+}
+
+.add_task {
+  grid-column: 1 / span 2;
+  background-color: rgb(15, 161, 71);
+  border: none;
+  color: white;
+  height: 20px;
+}
+
+input {
+  border: 2px solid rgb(0, 228, 87);
+  border-radius: 4px;
+  background-color: darkgreen;
+  color: white;
+}
+
+input:focus {
+  background-color: blue;
+}

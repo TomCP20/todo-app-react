@@ -1,4 +1,6 @@
 import ListItem from "../ListItem";
+import './TaskForm.css';
+
 
 interface TaskFormProps {
   items: ListItem[];
@@ -22,11 +24,11 @@ export default function TaskForm({ items, setItems }: Readonly<TaskFormProps>) {
 
     setItems([...items, { task: formElements.task.value, date: formElements.date.value, id: crypto.randomUUID() }]);
   }
-  return <form className="form" onSubmit={handleSubmit}>
-    <label>Task:</label>
-    <input type="text" id="task" required />
-    <label>Due Date:</label>
-    <input type="date" id="date" />
-    <button className="add_task">Add Task</button>
-  </form>;
+  return (
+    <form className="form" onSubmit={handleSubmit}>
+      Task:<input type="text" id="task" required />
+      Due Date:<input type="date" id="date" />
+      <button className="add_task">Add Task</button>
+    </form>
+  );
 }

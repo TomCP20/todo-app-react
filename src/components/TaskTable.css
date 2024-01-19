@@ -1,0 +1,26 @@
+table, th, td {
+    border: 1px solid;
+}
+
+table {
+    margin: auto;
+    border-collapse: collapse;
+    width: 50%;
+    color: darkgreen;
+}
+
+.col1 {
+    width: 8ch;
+}
+
+.col2 {
+    width: auto;
+}
+
+.col3 {
+    width: 10ch;
+}
+
+.col4 {
+    width: 6ch;
+}

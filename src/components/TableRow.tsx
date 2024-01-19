@@ -1,4 +1,5 @@
 import ListItem from "../ListItem";
+import "./TableRow.css"
 
 
 interface TableRowProps {
@@ -6,11 +7,13 @@ interface TableRowProps {
   onRemove: (id: string) => void;
 }
 
-export default function TableRow({item, onRemove}: Readonly<TableRowProps>) {
-  return <tr>
-    <th><input type="checkbox" /></th>
-    <th>{item.task}</th>
-    <th>{item.date || "n/a"}</th>
-    <th><button className="delete" onClick={() => onRemove(item.id)}>Delete</button></th>
-  </tr>;
+export default function TableRow({ item, onRemove }: Readonly<TableRowProps>) {
+  return (
+    <tr>
+      <th><input type="checkbox" /></th>
+      <th>{item.task}</th>
+      <th>{item.date || "n/a"}</th>
+      <th><button className="delete" onClick={() => onRemove(item.id)}>Delete</button></th>
+    </tr>
+  );
 }
