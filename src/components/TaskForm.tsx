@@ -24,12 +24,15 @@ export default function TaskForm({ items, setItems }: Readonly<TaskFormProps>) {
 
     setItems([...items, { task: formElements.task.value, date: formElements.date.value, id: crypto.randomUUID() }]);
   }
+
+  const todayDate = new Date();
+  const todayString = todayDate.toISOString().split("T")[0];
   return (
     <form className="form" onSubmit={handleSubmit}>
       <label htmlFor="task">Task:</label>
       <input type="text" id="task" required />
       <label htmlFor="date">Due Date:</label>
-      <input type="date" id="date" />
+      <input type="date" id="date" min={todayString} />
       <button className="add_task">Add Task</button>
     </form>
   );
