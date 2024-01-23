@@ -1,5 +1,6 @@
 .delete {
     border: none;
+    border-radius: 4px;
 }
 
 .delete:hover {
