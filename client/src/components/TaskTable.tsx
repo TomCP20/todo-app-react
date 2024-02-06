@@ -1,6 +1,5 @@
 import ListItem from "../ListItem";
 import TableRow from "./TableRow";
-import "./TaskTable.css"
 
 interface TaskTableProps {
   items: ListItem[];

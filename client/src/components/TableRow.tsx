@@ -1,5 +1,4 @@
 import ListItem from "../ListItem";
-import "./TableRow.css"
 
 
 interface TableRowProps {

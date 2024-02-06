@@ -14,4 +14,4 @@ app.get("/api", (req, res) => {
 app.get("*", (req, res) => {
     res.sendFile(path_1.default.join(__dirname, "..", "client", "build", "index.html"));
 });
-app.listen(PORT, () => console.log(`server is running at https://localhost:${PORT}.`));
+app.listen(PORT, () => console.log(`server is running at http://localhost:${PORT}.`));
