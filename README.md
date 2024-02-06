@@ -6,6 +6,6 @@ This project is a remake of [Todo App](https://github.com/TomCP20/Todo-App) impl
 
 ## Build and run
 
-First use `npm install` to install the necessary dependencies.
+To setup the project use `npm install` in both the server and client directories to install dependancies.
 
-Then either use `npm start` to run the app in development mode or `npm run build` to build the production version.
+To run the project `npm run build` in the client directory to compile the frontend Then `npm start` in the server directory to compile and run the backend.
