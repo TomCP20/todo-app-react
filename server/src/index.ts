@@ -4,8 +4,21 @@ import fs from "fs"
 
 const app = express()
 const PORT = 3001
-const dataPath = path.join(__dirname, "..", "db", "data.json");
+const dataDirPath = path.join(__dirname, "..", "db");
+const dataPath = path.join(dataDirPath, "data.json");
 const buildPath = path.join(__dirname, "..", "..", "client", "build")
+
+if (!fs.existsSync(dataDirPath)){
+    fs.mkdirSync(dataDirPath);
+}
+
+fs.stat(dataPath, (err, stat) => {
+    if (err != null && err.code === 'ENOENT') {
+        fs.writeFile(dataPath, "[]", (err) => {
+            if (err) throw err;
+        });
+    }
+});
 
 app.use(express.static(buildPath))
 
@@ -19,7 +32,7 @@ app.post("/api", (req, res) => {
 })
 
 app.get("/api", (req, res) => {
-    res.header("Content-Type",'application/json');
+    res.header("Content-Type", 'application/json');
     fs.readFile(dataPath, 'utf8', (err, data) => {
         if (err) throw err;
         res.send(data)
