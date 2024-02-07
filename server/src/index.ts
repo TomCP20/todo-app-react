@@ -21,7 +21,6 @@ app.get("/api", (req, res) => {
     res.header("Content-Type",'application/json');
     fs.readFile(filepath, 'utf8', (err, data) => {
         if (err) throw err;
-        console.log(data)
         res.send(data)
     })
 })
