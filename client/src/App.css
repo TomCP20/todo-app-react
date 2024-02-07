@@ -89,3 +89,7 @@ table {
 .delete:hover {
   background-color: red;
 }
+
+.save {
+  text-align: center;
+}
