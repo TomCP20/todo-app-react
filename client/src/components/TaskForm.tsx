@@ -21,7 +21,7 @@ export default function TaskForm({ items, setItems }: Readonly<TaskFormProps>) {
     const form = event.currentTarget;
     const formElements = form.elements;
 
-    setItems([...items, { task: formElements.task.value, date: formElements.date.value, id: crypto.randomUUID() }]);
+    setItems([...items, { complete: false, task: formElements.task.value, date: formElements.date.value, id: crypto.randomUUID() }]);
   }
 
   const todayDate = new Date();

@@ -10,6 +10,19 @@ export default function TaskTable({ items, setItems }: Readonly<TaskTableProps>)
   function handleRemove(id: string) {
     setItems(items.filter((item) => item.id !== id));
   }
+  function handleToggle(id: string) {
+    const newItems = items.map((item) => {
+      if (item.id === id) {
+        const newItem: ListItem = {
+          ...item,
+          complete: !item.complete
+        }
+        return newItem;
+      }
+      return item
+    });
+    setItems(newItems);
+  }
   return (
     <table>
       <caption>List of Tasks Todo</caption>
@@ -22,7 +35,7 @@ export default function TaskTable({ items, setItems }: Readonly<TaskTableProps>)
         </tr>
       </thead>
       <tbody>
-        {items.map(item => <TableRow item={item} onRemove={handleRemove} key={item.id} />)}
+        {items.map(item => <TableRow item={item} onRemove={handleRemove} onToggle={handleToggle} key={item.id} />)}
       </tbody>
     </table>
   );
