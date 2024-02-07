@@ -1,28 +1,13 @@
 import ListItem from "../ListItem";
 import TableRow from "./TableRow";
+import { Action } from "../App";
 
 interface TaskTableProps {
   items: ListItem[];
-  setItems: React.Dispatch<React.SetStateAction<ListItem[]>>;
+  dispatch: React.Dispatch<Action>;
 }
 
-export default function TaskTable({ items, setItems }: Readonly<TaskTableProps>) {
-  function handleRemove(id: string) {
-    setItems(items.filter((item) => item.id !== id));
-  }
-  function handleToggle(id: string) {
-    const newItems = items.map((item) => {
-      if (item.id === id) {
-        const newItem: ListItem = {
-          ...item,
-          complete: !item.complete
-        }
-        return newItem;
-      }
-      return item
-    });
-    setItems(newItems);
-  }
+export default function TaskTable({ items, dispatch }: Readonly<TaskTableProps>) {
   return (
     <table>
       <caption>List of Tasks Todo</caption>
@@ -35,7 +20,7 @@ export default function TaskTable({ items, setItems }: Readonly<TaskTableProps>)
         </tr>
       </thead>
       <tbody>
-        {items.map(item => <TableRow item={item} onRemove={handleRemove} onToggle={handleToggle} key={item.id} />)}
+        {items.map(item => <TableRow item={item} onRemove={() => dispatch({type: "del", id: item.id})} onToggle={() => dispatch({type: "toggle", id: item.id})} key={item.id} />)}
       </tbody>
     </table>
   );

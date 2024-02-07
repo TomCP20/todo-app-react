@@ -1,9 +1,10 @@
 import ListItem from "../ListItem";
+import { Action } from "../App";
 
 
 interface TaskFormProps {
   items: ListItem[];
-  setItems: React.Dispatch<React.SetStateAction<ListItem[]>>;
+  dispatch: React.Dispatch<Action>;
 }
 
 interface FormElements extends HTMLFormControlsCollection {
@@ -15,13 +16,13 @@ interface TaskFormElement extends HTMLFormElement {
   readonly elements: FormElements;
 }
 
-export default function TaskForm({ items, setItems }: Readonly<TaskFormProps>) {
+export default function TaskForm({ items, dispatch }: Readonly<TaskFormProps>) {
   function handleSubmit(event: React.FormEvent<TaskFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
     const formElements = form.elements;
 
-    setItems([...items, { complete: false, task: formElements.task.value, date: formElements.date.value, id: crypto.randomUUID() }]);
+    dispatch({type: "add", item: { complete: false, task: formElements.task.value, date: formElements.date.value, id: crypto.randomUUID() }})
   }
 
   const todayDate = new Date();
