@@ -20,12 +20,7 @@ function reducer(state: ListItem[], action: Action): ListItem[] {
     case "del":
       return state.filter((item) => item.id !== action.id)
     case "toggle":
-      return state.map((item) => {
-        if (item.id === action.id) {
-          return { ...item, complete: !item.complete }
-        }
-        return item;
-      });
+      return state.map((item) => { return item.id === action.id ? { ...item, complete: !item.complete } : item });
   }
 }
 
@@ -35,7 +30,7 @@ export default function App() {
   const firstUpdate = useRef(true);
 
   useEffect(() => {
-    fetch("/api").then(response => response.json()).then(data => dispatch({type: "initialize", items: data as ListItem[]}));
+    fetch("/api").then(response => response.json()).then(data => dispatch({ type: "initialize", items: data as ListItem[] }));
   }, []) // call on mount
 
   useEffect(() => {
