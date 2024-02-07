@@ -6,6 +6,6 @@ This project is a port of [Todo App](https://github.com/TomCP20/Todo-App) implem
 
 ## Build and run
 
-To set up the project use `npm install` in both the server and client directories to install dependencies.
+To set up the project use `npm install` in the root directory to install dependencies.
 
-To run the project `npm run build` in the client directory to compile the frontend Then `npm start` in the server directory to compile and run the backend.
+Then to run the project run `npm run build` in the root directory to build and run the project.

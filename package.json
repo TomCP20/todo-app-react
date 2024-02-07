@@ -1,0 +1,14 @@
+{
+  "name": "todo-app-react",
+  "version": "1.0.0",
+  "description": "A Todo App Written in Typescript using React for the front end and express in the backend.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "cd client && npm install && cd .. && cd server && npm install",
+    "build": "cd client && npm run build && cd .. && cd server && npm start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
