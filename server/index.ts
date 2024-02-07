@@ -4,23 +4,26 @@ import fs from "fs"
 
 const app = express()
 const PORT = 3001
+const filepath = path.join(__dirname, "db", "data.json");
 
 app.use(express.static(path.join(__dirname, "..", "client", "build")))
 
 app.use(express.json())
 
 app.post("/api", (req, res) => {
-    console.log(req.body);
-    const filepath = path.join(__dirname, "db", "data.json");
-    fs.writeFile(filepath, JSON.stringify(req.body), (err) => {
+    fs.writeFile(filepath, JSON.stringify(req.body, null, 4), (err) => {
         if (err) throw err;
-        console.log('Saved!');
     });
     res.json(req.body);
 })
 
 app.get("/api", (req, res) => {
-    res.send({ message: "hello" })
+    res.header("Content-Type",'application/json');
+    fs.readFile(filepath, 'utf8', (err, data) => {
+        if (err) throw err;
+        console.log(data)
+        res.send(data)
+    })
 })
 
 app.get("*", (req, res) => {

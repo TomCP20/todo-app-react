@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TaskTable from "./components/TaskTable";
 import TaskForm from "./components/TaskForm";
 import "./App.css"
@@ -8,9 +8,13 @@ export default function App() {
 
   const [items, setItems] = useState<ListItem[]>([]);
 
+  useEffect(() => {
+    fetch("/api").then(response => response.json()).then(data => setItems(data as ListItem[]));   
+  }, [])
+
   function saveItems() {
     fetch("/api", {
-      method: "POST", // or 'PUT'
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
