@@ -4,9 +4,9 @@ import fs from "fs"
 
 const app = express()
 const PORT = 3001
-const filepath = path.join(__dirname, "db", "data.json");
+const filepath = path.join(__dirname, "..", "db", "data.json");
 
-app.use(express.static(path.join(__dirname, "..", "client", "build")))
+app.use(express.static(path.join(__dirname, "..", "..", "client", "build")))
 
 app.use(express.json())
 
