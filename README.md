@@ -8,4 +8,6 @@ This project is a port of [Todo App](https://github.com/TomCP20/Todo-App) implem
 
 To set up the project use `npm install` in the root directory to install dependencies.
 
-Then to run the project run `npm run build` in the root directory to build and run the project.
+To run the project in development mode run `npm start` in the root directory.
+
+To build and run the project run `npm run build` in the root directory.
