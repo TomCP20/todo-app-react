@@ -47,6 +47,8 @@ export default function App() {
     });
   }, [items]) // call on items change
 
+  useEffect(() => () => {firstUpdate.current = true;}, []) // call on unmount
+
   return (
     <div className="App">
       <h1>Todo List App</h1>
