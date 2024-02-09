@@ -7,7 +7,7 @@ import ListItem from "shared/ListItem";
 
 export type Action =
   | { type: "initialize", items: ListItem[] }
-  | { type: "add", item: ListItem }
+  | { type: "add", task: string, date: string }
   | { type: "del", id: string }
   | { type: "toggle", id: string }
 
@@ -16,7 +16,7 @@ function reducer(state: ListItem[], action: Action): ListItem[] {
     case "initialize":
       return action.items;
     case "add":
-      return [...state, action.item];
+      return [...state, { complete: false, task: action.task, date: action.date, id: crypto.randomUUID() }];
     case "del":
       return state.filter((item) => item.id !== action.id)
     case "toggle":

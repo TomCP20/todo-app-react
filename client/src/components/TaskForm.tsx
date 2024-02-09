@@ -22,7 +22,7 @@ export default function TaskForm({ items, dispatch }: Readonly<TaskFormProps>) {
     const form = event.currentTarget;
     const formElements = form.elements;
 
-    dispatch({type: "add", item: { complete: false, task: formElements.task.value, date: formElements.date.value, id: crypto.randomUUID() }})
+    dispatch({ type: "add", task: formElements.task.value, date: formElements.date.value })
   }
 
   const todayDate = new Date();
