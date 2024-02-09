@@ -1,4 +1,4 @@
-import ListItem from "../ListItem";
+import ListItem from "shared/ListItem";
 import TableRow from "./TableRow";
 import { Action } from "../App";
 
