@@ -1,4 +1,4 @@
-import ListItem from "shared/ListItem";
+import { ListItem } from "shared";
 
 
 interface TableRowProps {

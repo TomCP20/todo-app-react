@@ -2,7 +2,7 @@ import { useEffect, useRef, useReducer } from "react";
 import TaskTable from "./components/TaskTable";
 import TaskForm from "./components/TaskForm";
 import "./App.css"
-import ListItem from "shared/ListItem";
+import { ListItem, isValidList } from "shared";
 
 
 export type Action =
@@ -30,7 +30,17 @@ export default function App() {
   const firstUpdate = useRef(true);
 
   useEffect(() => {
-    fetch("/api").then(response => response.json()).then(data => dispatch({ type: "initialize", items: data as ListItem[] }));
+    fetch("/api").then(response => response.json())
+      .then(data => {
+        if (isValidList(data))
+        {
+          dispatch({ type: "initialize", items: data})
+        }
+        else
+        {
+          console.error(`Invalid type from server: ${data}.`)
+        }
+      });
   }, []) // call on mount
 
   useEffect(() => {
@@ -47,7 +57,7 @@ export default function App() {
     });
   }, [items]) // call on items change
 
-  useEffect(() => () => {firstUpdate.current = true;}, []) // call on unmount
+  useEffect(() => () => { firstUpdate.current = true; }, []) // call on unmount
 
   return (
     <div className="App">
