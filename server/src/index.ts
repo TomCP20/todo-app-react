@@ -1,6 +1,7 @@
 import express from "express"
 import path from "path"
 import fs from "fs"
+import api from "./routes/api"
 
 const app = express()
 const PORT = 3001
@@ -24,20 +25,7 @@ app.use(express.static(buildPath))
 
 app.use(express.json())
 
-app.post("/api", (req, res) => {
-    fs.writeFile(dataPath, JSON.stringify(req.body, null, 4), (err) => {
-        if (err) throw err;
-    });
-    res.json(req.body);
-})
-
-app.get("/api", (req, res) => {
-    res.header("Content-Type", 'application/json');
-    fs.readFile(dataPath, 'utf8', (err, data) => {
-        if (err) throw err;
-        res.send(data)
-    })
-})
+app.use("/api", api)
 
 app.get("*", (req, res) => {
     res.sendFile(path.join(buildPath, "index.html"))
