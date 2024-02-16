@@ -1,6 +1,7 @@
 import { useEffect, useRef, useReducer } from "react";
 import TaskTable from "./components/TaskTable";
 import TaskForm from "./components/TaskForm";
+import DeleteList from "./components/DeleteList";
 import "./App.css"
 import { ListItem, isValidList } from "shared";
 
@@ -9,6 +10,7 @@ export type Action =
   | { type: "initialize", items: ListItem[] }
   | { type: "add", task: string, date: string }
   | { type: "del", id: string }
+  | { type: "del_all"}
   | { type: "toggle", id: string }
 
 function reducer(state: ListItem[], action: Action): ListItem[] {
@@ -19,6 +21,8 @@ function reducer(state: ListItem[], action: Action): ListItem[] {
       return [...state, { complete: false, task: action.task, date: action.date, id: crypto.randomUUID() }];
     case "del":
       return state.filter((item) => item.id !== action.id)
+    case "del_all":
+      return []
     case "toggle":
       return state.map((item) => { return item.id === action.id ? { ...item, complete: !item.complete } : item });
   }
@@ -71,6 +75,7 @@ export default function App() {
 
       <TaskTable items={items} dispatch={dispatch} />
 
+      <DeleteList dispatch={dispatch} />
     </div>
   );
 }

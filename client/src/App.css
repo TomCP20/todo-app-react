@@ -99,3 +99,42 @@ table {
 .save {
   text-align: center;
 }
+
+.delete_all_container {
+  text-align: center;
+  margin: 10px;
+}
+
+.delete_all {
+  border: none;
+  border-radius: 4px;
+  padding: 15px;
+}
+
+.delete_all:hover {
+  background-color: red;
+}
+
+.confirm_button_container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.confirm_button{
+  padding: 5px;
+  border: none;
+  border-radius: 4px;
+  width: 40%;
+}
+
+.confirm_yes:hover {
+  background-color: green;
+}
+
+.confirm_no:hover {
+  background-color: red;
+}
+
+dialog::backdrop {
+  backdrop-filter: blur(2px);
+}
