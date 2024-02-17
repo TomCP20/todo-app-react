@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cd client && npm run build && cd .. && cd server && npm start",
-    "start": "concurrently \"cd server && npm start\" \"cd client && npm start\""
+    "build": "npm run build -w shared && npm run build -w client && npm start -w server",
+    "start": "npm run build -w shared && concurrently \"npm start -w server\" \"npm start -w client\""
   },
   "keywords": [],
   "author": "",
