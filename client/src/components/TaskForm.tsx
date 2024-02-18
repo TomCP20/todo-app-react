@@ -30,7 +30,7 @@ export default function TaskForm({ items, dispatch }: Readonly<TaskFormProps>) {
   return (
     <form className="form" onSubmit={handleSubmit}>
       <label htmlFor="task">Task:</label>
-      <input type="text" id="task" required />
+      <input type="text" id="task" maxLength={80} required />
       <label htmlFor="date">Due Date:</label>
       <input type="date" id="date" min={todayString} />
       <button className="add_task">Add Task</button>
